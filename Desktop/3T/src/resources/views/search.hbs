@@ -1,0 +1,79 @@
+<!-- Header -->
+<div class="header">
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid adsa">
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarTogglerDemo01"> 
+            <a class="navbar-brand" href="/">3TMUSIC</a> 
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#singerpick">Ca Sĩ</a> 
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#type">Thể Loại</a>
+               </li>
+            </ul>
+            <form action="/search" class="d-flex">
+               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="name">
+               <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+         </div>
+      </div>
+   </nav>
+</div>
+<!-- Content -->
+<div class="word">
+            <p>Kết quả tìm kiếm :</p>
+        </div>
+<div class="content row">
+
+    <div class="col-12 col-sm-6 col-md-6 content-left">
+        <div class="box-shadow">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light " id="singerpick">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">BÀI HÁT</a>
+                </div>
+            </nav>
+            <div class="playlist result-song">
+                {{#each musics}}
+                <div class="playlist-item menu">
+                    <h3>
+                        <a href="#" title="Tên Bài Hát">{{this.name}}</a>
+                    </h3>
+                    <div class="playlist-singer">
+                        <h4 class="inline">
+                            <a href="" title="Tên Ca Sĩ">{{this.singer}}</a>
+                        </h4>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+    </div>
+    <div class="col-12 col-sm-6 col-md-6 content-right">
+        <div class="singer result-singer">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light nav-result-singer" id="singerpick">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">CA SĨ</a>
+                </div>
+            </nav>
+            <div class="result-singer-list">
+            {{#each singers}}           
+                    <div class="col-6 col-sm-4 col-md-3 p-2 singer_card">
+                        <a class="card h-100" href="/singers/{{this.slug}}">
+                            <img class="card-img-top" src="/{{this.image}}" />
+                            <h4 class="card-title text-center">{{this.name}}</h4>
+                        </a>
+                    </div>
+            {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="boxplayer" id="aplayer"></div>
